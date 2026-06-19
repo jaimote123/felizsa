@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños, Diana 🎂</title>
+<style>
+  :root{
+    --morado-oscuro:#2b0a3d;
+    --morado:#6a1b9a;
+    --morado-claro:#9c4dcc;
+    --rojo:#c41e3a;
+    --rojo-vino:#7a0c2e;
+    --blanco:#fdf8ff;
+    --negro:#120014;
+    --dorado:#e8c14d;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    min-height:100vh;
+    background: radial-gradient(circle at 20% 20%, var(--morado) 0%, var(--negro) 55%, var(--negro) 100%);
+    font-family:'Georgia', 'Times New Roman', serif;
+    color: var(--blanco);
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---- confeti / corazones flotantes ---- */
+  .floaters{
+    position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+  }
+  .floaters span{
+    position:absolute;
+    top:-10%;
+    font-size:22px;
+    opacity:.85;
+    animation: caer linear infinite;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,.4));
+  }
+  @keyframes caer{
+    0%{ transform: translateY(-10vh) rotate(0deg); opacity:0; }
+    10%{ opacity:1; }
+    100%{ transform: translateY(110vh) rotate(360deg); opacity:.9; }
+  }
+
+  .contenedor{
+    position:relative;
+    z-index:1;
+    max-width:760px;
+    margin:0 auto;
+    padding:40px 22px 80px;
+  }
+
+  header.hero{
+    text-align:center;
+    padding: 30px 10px 10px;
+  }
+
+  .titulo{
+    font-family:'Brush Script MT', cursive, 'Georgia';
+    font-size: clamp(2.6rem, 9vw, 4.6rem);
+    color: var(--dorado);
+    text-shadow: 0 0 18px rgba(232,193,77,.55), 2px 2px 0 var(--rojo-vino);
+    line-height:1.1;
+  }
+
+  .subtitulo{
+    margin-top:6px;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    letter-spacing: 2px;
+    color: var(--blanco);
+    text-transform:uppercase;
+    font-family:'Trebuchet MS', sans-serif;
+  }
+
+  .linea-decorativa{
+    width:140px;
+    height:3px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, var(--rojo), var(--dorado), var(--rojo), transparent);
+  }
+
+  /* ---- marco de foto ---- */
+  .marco-foto{
+    margin: 36px auto 10px;
+    width: min(360px, 80vw);
+    padding: 14px;
+    background: linear-gradient(145deg, var(--rojo-vino), var(--morado-oscuro));
+    border: 3px solid var(--dorado);
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.55), 0 0 0 6px rgba(154,77,204,.12);
+    transform: rotate(-1.2deg);
+  }
+  .marco-foto img{
+    width:100%;
+    display:block;
+    border-radius:8px;
+    aspect-ratio: 4/5;
+    object-fit:cover;
+    background: #1a0420;
+  }
+  .marco-foto figcaption{
+    text-align:center;
+    margin-top:10px;
+    color: var(--dorado);
+    font-size: .95rem;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+
+  /* ---- reproductor ---- */
+  .audio-card{
+    margin: 28px auto;
+    max-width: 480px;
+    background: rgba(106,27,154,.25);
+    border: 1px solid rgba(232,193,77,.4);
+    border-radius: 16px;
+    padding: 18px 20px;
+    backdrop-filter: blur(3px);
+  }
+  .audio-card p{
+    font-family:'Trebuchet MS', sans-serif;
+    font-size:.92rem;
+    color: var(--blanco);
+    margin-bottom:10px;
+    text-align:center;
+  }
+  .audio-card audio{
+    width:100%;
+  }
+  .audio-card .nota{
+    margin-top:10px;
+    font-size:.78rem;
+    color: #d8b9ec;
+    text-align:center;
+    line-height:1.4;
+  }
+
+  /* ---- carta ---- */
+  .carta{
+    margin-top: 40px;
+    background: linear-gradient(180deg, rgba(20,4,28,.85), rgba(43,10,61,.85));
+    border-left: 5px solid var(--rojo);
+    border-right: 5px solid var(--morado-claro);
+    border-radius: 18px;
+    padding: 38px 32px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.5);
+    position:relative;
+  }
+  .carta::before{
+    content:"❝";
+    position:absolute;
+    top:-18px; left:24px;
+    font-size:3.2rem;
+    color: var(--dorado);
+    font-family: Georgia, serif;
+  }
+
+  .carta p{
+    font-size: clamp(1rem, 2.4vw, 1.12rem);
+    line-height:1.85;
+    margin-bottom: 20px;
+    color:#f3e9fb;
+  }
+
+  .carta strong{
+    color: var(--dorado);
+  }
+
+  .destacado{
+    display:block;
+    text-align:center;
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    color: var(--rojo);
+    background: rgba(255,255,255,.04);
+    border: 1px dashed var(--rojo);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 26px 0;
+    font-style: italic;
+  }
+
+  .apodos{
+    margin-top: 30px;
+    text-align:center;
+  }
+  .apodos .lista{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-top:14px;
+  }
+  .apodos .lista span{
+    background: linear-gradient(135deg, var(--morado), var(--rojo-vino));
+    border:1px solid var(--dorado);
+    padding:7px 16px;
+    border-radius: 999px;
+    font-size:.92rem;
+    color: var(--blanco);
+    font-family:'Trebuchet MS', sans-serif;
+  }
+
+  .firma{
+    margin-top:34px;
+    text-align:right;
+    font-size:1.2rem;
+    color: var(--dorado);
+    font-style:italic;
+  }
+
+  .distancia{
+    text-align:center;
+    margin-top:50px;
+    font-family:'Trebuchet MS', sans-serif;
+    font-size:.95rem;
+    color:#d8b9ec;
+    letter-spacing:.5px;
+  }
+  .distancia strong{ color:var(--blanco); }
+
+  footer{
+    text-align:center;
+    margin-top: 60px;
+    padding-bottom: 20px;
+    font-size:.8rem;
+    color:#9a7bb5;
+    font-family:'Trebuchet MS', sans-serif;
+  }
+
+  @media (max-width:480px){
+    .carta{ padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="floaters" id="floaters"></div>
+
+<div class="contenedor">
+
+  <header class="hero">
+    <h1 class="titulo">Feliz Cumpleaños, Diana</h1>
+    <p class="subtitulo">Dianota · Rubí · Luna · Batman · Iguanita</p>
+    <div class="linea-decorativa"></div>
+  </header>
+
+  <figure class="marco-foto">
+    <img src="foto.png" alt="Foto de Diana">
+    <figcaption>La cumpleañera ✨</figcaption>
+  </figure>
+
+  <div class="audio-card">
+    <p>🎶 Para escuchar este día como se debe: "Feliz Cumpleaños" de Diomedes Díaz, claro que seeee</p>
+    <audio controls>
+      <source src="feliz_cumpleanos_diomedes.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio.
+    </audio>
+  
+  </div>
+
+  <section class="carta">
+    <p>Dianita, hoy esss, claro que siiiii, hoy esss el dia en que nacisteeeee vamoooooo y quiero que sepas, de una vez por todas, cuánto te quiero.</p>
+
+    <p>Te quiero así como Batman tiene su lado oscuro y su lado de héroe. Te quiero así como una iguana cambia de color sin dejar de ser ella misma (yo se que era el camaleon pero tu eres una iguana, lo se, se tu secreto). Te quiero como princesa, aunque a veces no lo creas. Te quiero con cada una de esas "dobles personalidades" que yo mismo me invento para describirte, porque ninguna sola alcanza. Y te sigo queriendo igual cuando casi no hablamos, o cuando me dejas en visto <em>(posdata: yo se que hay veces soy yo, incluso ayer jajaj mala mia, estaba con mis familiares y no me dio tiempo de contestar, perdoname la vida, te prometo un audio de minimo 5 minutos)</em>.</p>
+
+    <span class="destacado">Que tus sueños se cumplan de la mano de Dios.</span>
+
+    <p>Quiero que sepas que para mí ya eres un orgullo para tu familia. La real es que siento que ya lo eres, aunque por algún motivo no te guste escuchar eso. Y entiendo que quizás sientas que todo lo que te he venido diciendo en esta carta son solo palabras, las mismas que has oído mil veces de mil personas distintas, y que seguro pienses <strong>"ay sí, ajá, ya cállate, mejor me pongo a hacer otra cosa que leer a este mrk"</strong>.</p>
+
+    <p>Pero aun así, desde Colombia, aunque tú estés en Perú, quiero que sepas que te quiero mucho. Y repito: todo lo que te digo, que te ves linda, que eres inteligente, es verdad. Así lo siento yo. Y si tú dices que no, que no es suficiente, que no vale para nada, que no sabes qué decir, que es pura palabrería barata… igual quiero que sepas que es lo que siento de verdad, suene como suene.</p>
+
+    <p>Te quiero mucho aunque no lo creas, aunque pienses que esto está sacado de una IA, o de frases de internet, o que es la típica frase que diría cualquier hombre. Para mí estos sentimientos hacia ti son reales, y sin importar lo que pase, te voy a seguir queriendo así tengamos <strong>1.722 km</strong> de distancia <em>(sí, lo busqué)</em>. Te voy a seguir queriendo por siempre.</p>
+
+    <p>Espero que la pases súper en tu día. Sé que esto que te doy con esta página web es poco, pero es lo mejor que sé hacer para ti. Y bueno, ya sabes: 1) no tengo plata jajajaja, y 2) vivo re lejos jajaja. Perdón, pero te quiero mucho.</p>
+
+    <div class="apodos">
+      <p>Para ti, con todos tus nombres:</p>
+      <div class="lista">
+        <span>Dianota</span>
+        <span>Rubí</span>
+        <span>Luna</span>
+        <span>Batman</span>
+        <span>Gata Montesa desde la pezuña hasta la cabeza</span>
+        <span>Miraculus</span>
+        <span>Paloma</span>
+        <span>Iguanita</span>
+
+
+      </div>
+    </div>
+
+    <p class="firma">Con todo mi cariño, desde Colombia el ladrillo infiltrado de tu casa. 🖤💜❤️</p>
+  </section>
+
+  <p class="distancia">Cali, Colombia 🇨🇴 — Lima, Perú 🇵🇪 · <strong>1.722 km</strong> de distancia, pero el mismo cariño de siempre.</p>
+
+  <footer>Hecho con cariño para Diana Rubi o era con y? pirdon jjejej. 🎂</footer>
+</div>
+
+<script>
+  const cont = document.getElementById('floaters');
+  const simbolos = ['🎈','💜','❤️','🎉','✨','🖤'];
+  const total = 28;
+  for(let i=0;i<total;i++){
+    const s = document.createElement('span');
+    s.textContent = simbolos[Math.floor(Math.random()*simbolos.length)];
+    s.style.left = Math.random()*100 + 'vw';
+    s.style.fontSize = (14 + Math.random()*20) + 'px';
+    const dur = 8 + Math.random()*10;
+    s.style.animationDuration = dur + 's';
+    s.style.animationDelay = (Math.random()*dur) + 's';
+    cont.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
